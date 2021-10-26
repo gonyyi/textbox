@@ -1,7 +1,7 @@
 // (c) Gon Y. Yi 2021 <https://gonyyi.com/copyright>
 // Last Update: 10/26/2021
 
-package textdraw
+package textbox
 
 import (
    "encoding/json"

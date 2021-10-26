@@ -1,11 +1,11 @@
 // (c) Gon Y. Yi 2021 <https://gonyyi.com/copyright>
 // Last Update: 10/26/2021
 
-package textdraw_test
+package textbox_test
 
 import (
    "os"
-   "github.com/gonyyi/textdraw"
+   "github.com/gonyyi/textbox"
    "testing"
 )
 
@@ -27,18 +27,18 @@ const test = `{"name":"m1", "sub":[
 ]}`
 
 func TestNewTreeFromJSON(t *testing.T) {
-   c := textdraw.NewTreeConfig()
+   c := textbox.NewTreeConfig()
    c.Indentation = 2
-   tr, err := textdraw.NewTreeFromJSON([]byte(test))
+   tr, err := textbox.NewTreeFromJSON([]byte(test))
    if err != nil {println(err.Error()); return}
    tr.Follow(c, os.Stdout)
 
 }
 func TestNewTree(t *testing.T) {
-   c:=textdraw.NewTreeConfig()
+   c:=textbox.NewTreeConfig()
    c.Indentation = 2
 
-   tr := textdraw.NewTree("Gon")
+   tr := textbox.NewTree("Gon")
    tr = tr.AddSub(tr.NewSub("Name", tr.NewSub("LastName", tr.NewSub("Yi"))))
    tr = tr.AddSub(tr.NewSub("SSN", tr.NewSub("Number", tr.NewSub("123-45-6789")), tr.NewSub("Issued", tr.NewSub("01/01/2001"))), tr.NewSub("Issued", tr.NewSub("01/01/2001")))
    tr.Follow(c, os.Stdout)
